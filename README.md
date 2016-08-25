@@ -11,6 +11,29 @@ For example:
 You can call a macro whilst running it
 --------------------------------------
 
+This script needs to be yanked into the `a` register. You can do this with `0"ay$`.
+
 ```vimscript
 Ihello world!@a
 ```
+
+When executed (`@a`) this will endlessly repeat _hello world!_.
+This is because it inserts that text and then calls itself again.
+
+This allows recursion.
+
+You can create a macro while running a macro
+--------------------------------------------
+
+This script needs to be yanked into the `a` register. You can do this with `0"ay$`.
+
+```vimscript
+oIhello world!0"by$dd@b@a
+```
+
+When executed (`@a`) this will endlessly repeat _hello world!_.
+This is because it populates the `b` register with `Ihello world!` and then calls it.
+
+This uses `<ESC>` after calling `@b` to demonstrate that the macro invocation
+remains in insert mode after leaving the `b` macro. It would be possible to end
+insert mode within the `b` macro by ending it with `<C-V><C-V><C-V><ESC>`.
