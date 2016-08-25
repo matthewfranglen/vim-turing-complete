@@ -84,3 +84,48 @@ The turing complete language requires the following:
 
  * A way to perform conditional repetition
  * A way to read and write some form of storage
+
+Implementation
+--------------
+
+### State Mapping
+
+To implement the turing machine in vim the most important thing is the definition of the mapping.
+This will be mapped in the `mapping` buffer.
+
+To make this easy the mapping will fit on one line:
+
+```
+STATE SYMBOL NEXT-STATE ACTION
+a 0 a j
+a 1 b r0j
+b 0 a j
+b 1 c oend
+```
+
+If you are in state `a` and you are over a `0` then you stay in state `a` and
+use `j` to move down one line.
+
+### Internal State
+
+This is held in the `state` buffer and must be initialized.
+
+### Infinite Tape
+
+This is held in the `tape` buffer and has a symbol per line. The cursor rests on the first line.
+
+### Execution
+
+To execute a single round the following process is performed:
+
+ * Move to the `state` buffer and read the state into register `a`
+ * Move to the `tape` buffer and read into register `b`
+ * Initialize register `c` with the content of `a` and `b` separated by a space
+ * Clear the `work` buffer
+ * Copy the `mapping` buffer into the `work` buffer
+ * Reduce the `work` buffer down to the single line that matches the current state and symbol combination
+ * (find a space to exit early)
+ * Delete the first two words (current state and current symbol)
+ * Read the next word and replace the `state` buffer with it
+ * Read the remaining words and execute them as a complex repeat over the `tape` buffer
+ * Repeat
