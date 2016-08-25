@@ -140,3 +140,5 @@ vim *
 ```
 
 Then within vim open the `init` buffer and follow the instructions.
+
+Implementation currently broken. :(
