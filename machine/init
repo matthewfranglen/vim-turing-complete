@@ -1,10 +1,2 @@
--- Yank the following line and execute with 0"zy$@z
-:e stategg0"ay$
-:e tape0"by$
-:e workggdG"api "bpi 0"cD
-:e mappingggyG
-:e workggp
-:v/^c/d0f 0d2wyt 
-:e stategg0dG"0p
-:e work0dwD
-:e tape@"
+-- Yank the following line and execute with qzq:.,$ normal "Zy$@z
+:e stategg0"ay$:e tape0"by$:e workggdG"api "bpi 0"cD:e mappingggyG:e workggp:v/^c/d0f 0d2wyt :e stategg0dG"0p:e work0dwD:e tape@"
