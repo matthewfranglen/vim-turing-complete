@@ -1,0 +1,5 @@
+STATE SYMBOL NEXT-STATE ACTION
+a 0 a j
+a 1 b r0j
+b 0 a j
+b 1 c oend
