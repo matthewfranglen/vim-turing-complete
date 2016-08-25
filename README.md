@@ -129,3 +129,14 @@ To execute a single round the following process is performed:
  * Read the next word and replace the `state` buffer with it
  * Read the remaining words and execute them as a complex repeat over the `tape` buffer
  * Repeat
+
+Example
+-------
+
+Move to the `machine` folder and execute the following:
+
+```
+vim *
+```
+
+Then within vim open the `init` buffer and follow the instructions.
