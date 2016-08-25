@@ -5,11 +5,13 @@ If you take every action that Vim provides then it is possible to create a
 turing complete sequence of actions. This is because both vimscript and the
 shell are turing complete.
 
+Capabilities
+------------
+
 It is possible to do a great deal with a relatively small number of actions.
 For example:
 
-You can call a complex repeat whilst running it
------------------------------------------------
+### You can call a complex repeat whilst running it
 
 This script needs to be yanked into the `a` register. You can do this with `0"ay$`.
 
@@ -22,8 +24,7 @@ This is because it inserts that text and then calls itself again.
 
 This allows recursion.
 
-You can create a complex repeat while running a complex repeat
---------------------------------------------------------------
+### You can create a complex repeat while running a complex repeat
 
 This script needs to be yanked into the `a` register. You can do this with `0"ay$`.
 
@@ -41,8 +42,7 @@ insert mode within the `b` complex repeat by ending it with `<C-V><C-V><C-V><ESC
 I believe that with careful construction conditional complex repeat invocation
 can be achieved.
 
-You can use the current buffer as a working memory
---------------------------------------------------
+### You can use the current buffer as a working memory
 
 This script needs to be yanked into the `a` register. You can do this with `0"ay$`.
 
@@ -58,3 +58,5 @@ This functionality has already been demonstrated by the other examples.
 This just makes it explicit.
 
 There are other ways to do this which permit greater power (e.g. multi-repeat).
+
+
