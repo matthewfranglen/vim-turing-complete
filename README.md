@@ -39,8 +39,9 @@ This uses `<ESC>` after calling `@b` to demonstrate that the complex repeat invo
 remains in insert mode after leaving the `b` complex repeat. It would be possible to end
 insert mode within the `b` complex repeat by ending it with `<C-V><C-V><C-V><ESC>`.
 
-I believe that with careful construction conditional complex repeat invocation
-can be achieved.
+With careful construction conditional complex repeat invocation can be achieved.
+This can be done by reducing and mapping a block of text into a complex repeat
+using actions such as `:g`, `:v` and `:s`.
 
 ### You can use the current buffer as a working memory
 
@@ -59,4 +60,27 @@ This just makes it explicit.
 
 There are other ways to do this which permit greater power (e.g. multi-repeat).
 
+Turing Completeness
+-------------------
 
+### Turing Machines
+
+The definition of a turing machine is available [here](http://plato.stanford.edu/entries/turing-machine/#Definition).
+
+The turing machine requires the following:
+
+ * An internal state
+ * An infinite tape of symbols
+ * A map of state and symbol to next state and action
+
+It is perfectly possible to use buffers to represent all of these.
+It's also convenient to have a fourth buffer to work over.
+
+### Turing Completeness
+
+A simple list of requirements is available [here](http://programmers.stackexchange.com/a/132420).
+
+The turing complete language requires the following:
+
+ * A way to perform conditional repetition
+ * A way to read and write some form of storage
