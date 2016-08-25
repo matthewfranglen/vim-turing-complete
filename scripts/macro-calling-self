@@ -1,0 +1,3 @@
+-- yank the next line into register a with 0"ay$ then run it with @a
+Ihello world!@a
+
