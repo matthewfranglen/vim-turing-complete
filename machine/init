@@ -1,3 +1,5 @@
+-- This example requires moving between buffers without saving changes. You can enable this behaviour with :set hidden
+
 -- Yank the following line into a register to set up the macro with "qy$ and execute a single step with @q
 -- This will perform a single step each time so you can see the process at work.
 
