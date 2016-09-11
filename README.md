@@ -118,9 +118,9 @@ This is held in the `tape` buffer and has a symbol per line. The cursor rests on
 
 To execute a single round the following process is performed:
 
- * Move to the `state` buffer and read the state into register `a`
- * Move to the `tape` buffer and read into register `b`
- * Initialize register `c` with the content of `a` and `b` separated by a space
+ * Move to the `state` buffer and read the state into register `s`
+ * Move to the `tape` buffer and read into register `t`
+ * Initialize the `mapping` register `m` with the content: `@s @t`
  * Clear the `work` buffer
  * Copy the `mapping` buffer into the `work` buffer
  * Reduce the `work` buffer down to the single line that matches the current state and symbol combination
@@ -140,5 +140,3 @@ vim *
 ```
 
 Then within vim open the `init` buffer and follow the instructions.
-
-Implementation currently broken. :(
