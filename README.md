@@ -140,3 +140,42 @@ vim *
 ```
 
 Then within vim open the `init` buffer and follow the instructions.
+
+This example takes a tape containing the following content:
+
+```
+0
+1
+0
+1
+1
+```
+
+And a mapping of the following state and symbol transitions:
+
+STATE | SYMBOL | NEXT-STATE | ACTION
+----- | ------ | ---------- | ------
+a     | 0      | a          | j
+a     | 1      | b          | r0j
+b     | 0      | a          | j
+b     | 1      | c          | oend
+
+It starts in state `a` on the first row. It then proceeds as follows:
+
+ * The state is `a` and the tape is `0` so it transitions to state `a` and executes `j` (move one row down)
+ * The state is `a` and the tape is `1` so it transitions to state `b` and executes `r0j` (replace the 1 with a zero and move one row down)
+ * The state is `b` and the tape is `0` so it transitions to state `a` and executes `j` (move one row down)
+ * The state is `a` and the tape is `1` so it transitions to state `b` and executes `r0j` (replace the 1 with a zero and move one row down)
+ * The state is `b` and the tape is `1` so it transitions to state `c` and executes `oend<ESC>` (write `end` after the current line and exit insert mode)
+ * The state is `c` and the tape is `end` so it fails to find a matching mapping line. It stops at this point
+
+This results in a tape with the following content:
+
+```
+0
+0
+0
+0
+1
+end
+```
