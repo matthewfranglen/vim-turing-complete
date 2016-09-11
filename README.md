@@ -5,6 +5,13 @@ If you take every action that Vim provides then it is possible to create a
 turing complete sequence of actions. This is because both vimscript and the
 shell are turing complete.
 
+This README will look broken on github because it makes extensive use of
+literal escapes. It would be best to read this in Vim itself:
+
+```
+vim https://raw.githubusercontent.com/matthewfranglen/vim-turing-complete/master/README.md
+```
+
 Capabilities
 ------------
 
