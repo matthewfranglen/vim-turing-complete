@@ -3,7 +3,8 @@ What minimum set of actions make Vim turing complete?
 
 If you take every action that Vim provides then it is possible to create a
 turing complete sequence of actions. This is because both vimscript and the
-shell are turing complete.
+shell are turing complete. This is an exploration of what minimal set of vim
+motions and actions are required to support turing completeness.
 
 This README will look broken on github because it makes extensive use of
 literal escapes. It would be best to read this in Vim itself:
@@ -12,8 +13,33 @@ literal escapes. It would be best to read this in Vim itself:
 vim https://raw.githubusercontent.com/matthewfranglen/vim-turing-complete/master/README.md
 ```
 
-Capabilities
-------------
+Turing Completeness
+-------------------
+
+### Turing Machines
+
+The definition of a turing machine is available [here](http://plato.stanford.edu/entries/turing-machine/#Definition).
+
+The turing machine requires the following:
+
+ * An internal state
+ * An infinite tape of symbols
+ * A map of state and symbol to next state and action
+
+It is perfectly possible to use buffers to represent all of these.
+It's also convenient to have a fourth buffer to work over.
+
+### Turing Completeness
+
+A simple list of requirements is available [here](http://programmers.stackexchange.com/a/132420).
+
+The turing complete language requires the following:
+
+ * A way to perform conditional repetition
+ * A way to read and write some form of storage
+
+Capabilities of Vim
+-------------------
 
 It is possible to do a great deal with a relatively small number of actions.
 For example:
@@ -67,31 +93,6 @@ This just makes it explicit.
 
 There are other ways to do this which permit greater power (e.g. multi-repeat).
 
-Turing Completeness
--------------------
-
-### Turing Machines
-
-The definition of a turing machine is available [here](http://plato.stanford.edu/entries/turing-machine/#Definition).
-
-The turing machine requires the following:
-
- * An internal state
- * An infinite tape of symbols
- * A map of state and symbol to next state and action
-
-It is perfectly possible to use buffers to represent all of these.
-It's also convenient to have a fourth buffer to work over.
-
-### Turing Completeness
-
-A simple list of requirements is available [here](http://programmers.stackexchange.com/a/132420).
-
-The turing complete language requires the following:
-
- * A way to perform conditional repetition
- * A way to read and write some form of storage
-
 Implementation
 --------------
 
@@ -107,7 +108,7 @@ STATE SYMBOL NEXT-STATE ACTION
 a 0 a j
 a 1 b r0j
 b 0 a j
-b 1 c oend
+b 1 c oend
 ```
 
 If you are in state `a` and you are over a `0` then you stay in state `a` and
