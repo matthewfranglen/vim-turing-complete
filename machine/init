@@ -2,3 +2,8 @@
 -- This will perform a single step each time so you can see the process at work.
 
 :e state"sy$:e tape"ty$:let @m = @s . " " . @t:e workdG:e mappingggyG:e workpdgg:v/^m /df 0d2W"syl:e stateCs:e workdw"ay$dd:e tape@a
+
+-- Yank the following line into a register to set up the macro with "qy$ and execute a single step with @q
+-- This will perform all steps until one fails (it will fail in the work buffer)
+
+:e state"sy$:e tape"ty$:let @m = @s . " " . @t:e workdG:e mappingggyG:e workpdgg:v/^m /df 0d2W"syl:e stateCs:e workdw"ay$dd:e tape@a@q
